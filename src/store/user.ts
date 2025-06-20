@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia'
+// @ts-ignore
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 export enum UserRole {
   Admin = 1,
@@ -36,5 +38,6 @@ export const useUserStore = defineStore('user', {
       this.menus = []
       this.token = ''
     }
-  }
+  },
+  persist: true
 })
