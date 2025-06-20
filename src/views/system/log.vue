@@ -1,10 +1,7 @@
 <template>
   <div class="log">
     <h2>操作日志</h2>
-    <ul>
-      <li>日志查询</li>
-      <li>日志导出</li>
-    </ul>
+    <router-view />
   </div>
 </template>
 

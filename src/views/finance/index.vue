@@ -1,14 +1,7 @@
 <template>
   <div class="finance-index">
     <h1>财务管理</h1>
-    <ul>
-      <li><router-link to="/finance/general-ledger">总账</router-link></li>
-      <li><router-link to="/finance/receivables">应收管理</router-link></li>
-      <li><router-link to="/finance/payables">应付管理</router-link></li>
-      <li><router-link to="/finance/fixed-assets">固定资产</router-link></li>
-      <li><router-link to="/finance/cost-accounting">成本核算</router-link></li>
-      <li><router-link to="/finance/budget">预算管理</router-link></li>
-    </ul>
+    <router-view />
   </div>
 </template>
 

@@ -7,6 +7,9 @@ dependencies:
   element-plus:
     specifier: ^2.10.2
     version: 2.10.2(vue@3.5.13)
+  jwt-decode:
+    specifier: ^3.1.2
+    version: 3.1.2
   pinia:
     specifier: ^3.0.3
     version: 3.0.3(typescript@5.8.3)(vue@3.5.13)
@@ -858,6 +861,10 @@ packages:
   /is-what@4.1.16:
     resolution: {integrity: sha512-ZhMwEosbFJkA0YhFnNDgTM4ZxDRsS6HqTo7qsZM08fehyRYIYa0yHu5R6mgo1n/8MgaPBXiPimPD77baVFYg+A==}
     engines: {node: '>=12.13'}
+    dev: false
+
+  /jwt-decode@3.1.2:
+    resolution: {integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==}
     dev: false
 
   /lodash-es@4.17.21:

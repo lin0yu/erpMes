@@ -1,11 +1,7 @@
 <template>
   <div class="crm-index">
     <h1>客户关系管理</h1>
-    <ul>
-      <li><router-link to="/crm/customer">客户信息管理</router-link></li>
-      <li><router-link to="/crm/marketing">市场营销管理</router-link></li>
-      <li><router-link to="/crm/service">客户服务管理</router-link></li>
-    </ul>
+    <router-view />
   </div>
 </template>
 
