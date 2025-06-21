@@ -7,7 +7,6 @@
       </div>
       <el-menu :default-active="$route.path" router background-color="#263445" text-color="#fff" active-text-color="#ffd04b" :collapse="collapsed">
         <el-menu-item index="/">
-          <i class="el-icon-house"></i>
           <span v-if="!collapsed">首页</span>
         </el-menu-item>
         <template v-for="menu in menuList" :key="menu.index">
@@ -35,7 +34,6 @@
               <el-breadcrumb-item v-else-if="item">{{ item.title }}</el-breadcrumb-item>
             </template>
           </el-breadcrumb>
-     
         </div>
         <div class="header-right">
           <el-avatar size="small" :src="userStore.avatar || 'https://avatars.githubusercontent.com/u/1?v=4'" />
@@ -43,10 +41,10 @@
           <span class="role">({{ userStore.role }})</span>
         </div>
       </el-header>
+      <!-- <el-tabs v-if="currentMainMenu" v-model="activeSubMenu" @tab-click="onTabClick" class="submenu-tabs" style="margin-bottom: 0; border-bottom: 1px solid #eee;">
+        <el-tab-pane v-for="sub in currentMainMenu.children" :key="sub.index" :label="sub.title" :name="sub.index"></el-tab-pane>
+      </el-tabs> -->
       <el-main class="main-custom">
-        <el-tabs v-if="currentMainMenu" v-model="activeSubMenu" @tab-click="onTabClick" class="submenu-tabs">
-            <el-tab-pane v-for="sub in currentMainMenu.children" :key="sub.index" :label="sub.title" :name="sub.index"></el-tab-pane>
-          </el-tabs>
         <router-view />
       </el-main>
     </el-container>
@@ -113,7 +111,6 @@ const breadcrumbList = computed(() => {
   return findBreadcrumb(path)
 })
 </script>
-
 <style scoped>
 .el-header.header-custom {
   background: #fff;
@@ -144,6 +141,10 @@ const breadcrumbList = computed(() => {
   display: flex;
   flex-direction: column;
   padding-top: 0;
+}
+.submenu-tabs{
+  padding: 0 16px;
+  background-color: transparent;
 }
 .logo-area {
   display: flex;
@@ -181,8 +182,7 @@ const breadcrumbList = computed(() => {
 }
 .main-custom {
   background: #f7f8fa;
-  min-height: 100%;
-  padding: 24px;
+  padding:0 24px 0;
 }
 .aside-custom {
   transition: width 0.3s cubic-bezier(.4,0,.2,1);

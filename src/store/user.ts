@@ -1,21 +1,8 @@
+import type { UserInfo } from '@/types/user'
 import { defineStore } from 'pinia'
 // @ts-ignore
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
-export enum UserRole {
-  Admin = 1,
-  Manager = 2,
-  Staff = 3
-}
-
-export interface UserInfo {
-  id: string
-  username: string
-  avatar: string
-  role: UserRole | number
-  menus: any[]
-  token: string
-}
 
 export const useUserStore = defineStore('user', {
   state: (): UserInfo => ({

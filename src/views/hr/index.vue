@@ -1,6 +1,5 @@
 <template>
   <div class="hr-index">
-    <h1>人力资源管理</h1>
     <router-view />
   </div>
 </template>

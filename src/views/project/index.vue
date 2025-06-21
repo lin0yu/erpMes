@@ -1,6 +1,5 @@
 <template>
   <div class="project-index">
-    <h1>项目管理</h1>
     <router-view />
   </div>
 </template>

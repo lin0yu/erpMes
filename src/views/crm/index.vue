@@ -1,6 +1,5 @@
 <template>
   <div class="crm-index">
-    <h1>客户关系管理</h1>
     <router-view />
   </div>
 </template>

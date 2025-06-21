@@ -1,6 +1,5 @@
 <template>
   <div class="finance-index">
-    <h1>财务管理</h1>
     <router-view />
   </div>
 </template>

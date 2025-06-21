@@ -1,6 +1,5 @@
 <template>
   <div class="supplychain-index">
-    <h1>供应链管理</h1>
     <router-view />
   </div>
 </template>
