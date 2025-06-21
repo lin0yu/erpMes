@@ -36,7 +36,17 @@
           </el-breadcrumb>
         </div>
         <div class="header-right">
-          <el-avatar size="small" :src="userStore.avatar || 'https://avatars.githubusercontent.com/u/1?v=4'" />
+          <el-dropdown trigger="hover">
+            <span class="avatar-dropdown-trigger">
+              <el-avatar size="small" :src="userStore.avatar || 'https://avatars.githubusercontent.com/u/1?v=4'" />
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item @click="onChangePassword">修改密码</el-dropdown-item>
+                <el-dropdown-item divided @click="onLogout">退出</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
           <span class="username">{{ userStore.username }}</span>
           <span class="role">({{ userStore.role }})</span>
         </div>
@@ -48,6 +58,23 @@
         <router-view />
       </el-main>
     </el-container>
+    <el-dialog v-model="showPwdDialog" title="修改密码" width="400px">
+      <el-form :model="pwdForm" :rules="pwdRules" ref="pwdFormRef" label-width="90px">
+        <el-form-item label="旧密码" prop="oldPwd">
+          <el-input v-model="pwdForm.oldPwd" type="password" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="新密码" prop="newPwd">
+          <el-input v-model="pwdForm.newPwd" type="password" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="确认新密码" prop="confirmPwd">
+          <el-input v-model="pwdForm.confirmPwd" type="password" autocomplete="off" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="showPwdDialog = false">取消</el-button>
+        <el-button type="primary" @click="submitPwd">确定</el-button>
+      </template>
+    </el-dialog>
   </el-container>
 </template>
 
@@ -110,6 +137,54 @@ const breadcrumbList = computed(() => {
   if (path === '/' || path === '') return []
   return findBreadcrumb(path)
 })
+import { ref, reactive } from 'vue'
+import { ElMessage } from 'element-plus'
+
+const showPwdDialog = ref(false)
+const pwdFormRef = ref()
+const pwdForm = reactive({
+  oldPwd: '',
+  newPwd: '',
+  confirmPwd: ''
+})
+const pwdRules = {
+  oldPwd: [
+    { required: true, message: '请输入旧密码', trigger: 'blur' }
+  ],
+  newPwd: [
+    { required: true, message: '请输入新密码', trigger: 'blur' },
+    { min: 6, message: '新密码至少6位', trigger: 'blur' }
+  ],
+  confirmPwd: [
+    { required: true, message: '请再次输入新密码', trigger: 'blur' },
+    { validator: (rule: any, value: string, callback: any) => {
+        if (value !== pwdForm.newPwd) {
+          callback(new Error('两次输入的新密码不一致'))
+        } else {
+          callback()
+        }
+      }, trigger: 'blur' }
+  ]
+}
+function onChangePassword() {
+  showPwdDialog.value = true
+}
+function submitPwd() {
+  pwdFormRef.value.validate((valid: boolean) => {
+    if (valid) {
+      // TODO: 调用后端接口修改密码
+      ElMessage.success('密码修改成功')
+      showPwdDialog.value = false
+      pwdForm.oldPwd = ''
+      pwdForm.newPwd = ''
+      pwdForm.confirmPwd = ''
+    }
+  })
+}
+function onLogout() {
+  userStore.logout()
+  router.push('/login')
+}
 </script>
 <style scoped>
 .el-header.header-custom {
