@@ -4,7 +4,7 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import router from '@/router'
-import './style.css'
+import "@/style/common.scss"
 import './style/reset.scss'
 import App from '@/App.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'

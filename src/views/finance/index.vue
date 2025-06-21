@@ -9,7 +9,7 @@
 
 <style scoped>
 .finance-index {
-  padding: 24px;
+  padding: 0;
 }
 .finance-index ul {
   list-style: none;
