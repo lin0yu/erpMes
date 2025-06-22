@@ -5,7 +5,12 @@ export const menuList = [
     title: '财务管理',
     children: [
       { index: '/finance/general-ledger', title: '总账' },
-      { index: '/finance/receivables', title: '应收管理' },
+      { index: '/finance/receivables', title: '应收管理', children: [
+        { index: '/finance/receivables/collection', title: '客户收款' },
+        { index: '/finance/receivables/notes', title: '应收票据管理' },
+        { index: '/finance/receivables/writeoff', title: '应收账款核销' },
+        { index: '/finance/receivables/aging', title: '账龄分析' }
+      ] },
       { index: '/finance/payables', title: '应付管理' },
       { index: '/finance/fixed-assets', title: '固定资产' },
       { index: '/finance/cost-accounting', title: '成本核算' },

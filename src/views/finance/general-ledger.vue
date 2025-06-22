@@ -22,11 +22,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import VoucherEntry from './voucher-entry.vue'
+import VoucherAudit from './voucher-audit.vue'
+import VoucherQuery from './voucher-query.vue'
+import VoucherPosting from './voucher-posting.vue'
+import VoucherClosing from './voucher-closing.vue'
 const activeTab = ref('entry')
 // 组件占位，后续可分别实现
 </script>
 
 <style scoped>
-.general-ledger {
-}
+
 </style>

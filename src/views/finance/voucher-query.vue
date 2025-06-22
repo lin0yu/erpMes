@@ -1,7 +1,6 @@
 <template>
   <div>
     <el-card>
-      <h3>凭证查询</h3>
       <!-- 这里实现凭证查询表单和结果列表 -->
       <el-form inline label-width="60px" class="mb-2">
         <el-form-item label="日期">

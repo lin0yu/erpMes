@@ -1,7 +1,6 @@
 <template>
   <div>
     <el-card>
-      <h3>凭证审核</h3>
       <!-- 这里实现凭证审核列表及操作 -->
       <el-table :data="vouchers">
         <el-table-column prop="date" label="日期" />

@@ -1,7 +1,6 @@
 <template>
   <div>
     <el-card>
-      <h3>凭证录入</h3>
       <!-- 这里实现凭证录入表单及相关逻辑 -->
       <el-form label-width="80px">
         <el-form-item label="日期">

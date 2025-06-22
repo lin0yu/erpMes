@@ -1,20 +1,22 @@
 <template>
-  <div class="bom">
-    <h2>物料清单（BOM）</h2>
-    <ul>
-      <li>BOM维护</li>
-      <li>BOM变更</li>
-    </ul>
-  </div>
+  <el-tabs v-model="activeTab">
+    <el-tab-pane label="BOM列表" name="bomList">
+      <BomList />
+    </el-tab-pane>
+    <el-tab-pane label="BOM明细" name="detail">
+      <Detail />
+    </el-tab-pane>
+  </el-tabs>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import BomList from './bom/BomList.vue';
+import Detail from './bom/Detail.vue';
+const activeTab = ref('bomList');
 </script>
 
 <style scoped>
-.bom {
-  padding: 24px;
-}
 .bom ul {
   list-style: none;
   padding: 0;

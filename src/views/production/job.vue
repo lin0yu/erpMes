@@ -1,18 +1,23 @@
 <template>
-  <div class="job">
-    <h2>生产作业</h2>
-    <ul>
-      <li>派工管理</li>
-      <li>生产进度跟踪</li>
-      <li>生产日报</li>
-    </ul>
-  </div>
+  <el-tabs v-model="activeTab">
+    <el-tab-pane label="作业列表" name="jobList">
+      <JobList />
+    </el-tab-pane>
+    <el-tab-pane label="作业进度" name="progress">
+      <Progress />
+    </el-tab-pane>
+  </el-tabs>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import JobList from './job/JobList.vue';
+import Progress from './job/Progress.vue';
+const activeTab = ref('jobList');
 </script>
 
 <style scoped>
+
 .job {
   padding: 24px;
 }

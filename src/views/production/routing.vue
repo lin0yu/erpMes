@@ -1,25 +1,23 @@
 <template>
-  <div class="routing">
-    <h2>工艺路线</h2>
-    <ul>
-      <li>工艺路线设置</li>
-      <li>工艺变更</li>
-    </ul>
-  </div>
+  <el-tabs v-model="activeTab">
+    <el-tab-pane label="工艺路线列表" name="routingList">
+      <RoutingList />
+    </el-tab-pane>
+    <el-tab-pane label="工艺路线明细" name="detail">
+      <Detail />
+    </el-tab-pane>
+  </el-tabs>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import RoutingList from './routing/RoutingList.vue';
+import Detail from './routing/Detail.vue';
+const activeTab = ref('routingList');
 </script>
 
 <style scoped>
-.routing {
-  padding: 24px;
-}
-.routing ul {
-  list-style: none;
-  padding: 0;
-}
-.routing li {
-  margin-bottom: 8px;
+.el-tabs {
+  /* 无背景色 */
 }
 </style>

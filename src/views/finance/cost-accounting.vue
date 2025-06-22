@@ -1,27 +1,31 @@
 <template>
   <div class="cost-accounting">
-    <h2>成本核算</h2>
-    <ul>
-      <li>成本要素设置</li>
-      <li>成本分摊</li>
-      <li>成本计算</li>
-      <li>成本分析</li>
-    </ul>
+    <el-tabs v-model="activeTab">
+      <el-tab-pane label="成本要素设置" name="element">
+        <Element />
+      </el-tab-pane>
+      <el-tab-pane label="成本分摊" name="allocation">
+        <Allocation />
+      </el-tab-pane>
+      <el-tab-pane label="成本计算" name="calculation">
+        <Calculation />
+      </el-tab-pane>
+      <el-tab-pane label="成本分析" name="analysis">
+        <Analysis />
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import Element from './cost-accounting/Element.vue';
+import Allocation from './cost-accounting/Allocation.vue';
+import Calculation from './cost-accounting/Calculation.vue';
+import Analysis from './cost-accounting/Analysis.vue';
+const activeTab = ref('element');
 </script>
 
 <style scoped>
-.cost-accounting {
-  padding: 24px;
-}
-.cost-accounting ul {
-  list-style: none;
-  padding: 0;
-}
-.cost-accounting li {
-  margin-bottom: 8px;
-}
+
 </style>

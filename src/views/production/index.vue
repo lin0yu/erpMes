@@ -8,9 +8,6 @@
 </script>
 
 <style scoped>
-.production-index {
-  padding: 24px;
-}
 .production-index ul {
   list-style: none;
   padding: 0;

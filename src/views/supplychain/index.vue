@@ -8,9 +8,7 @@
 </script>
 
 <style scoped>
-.supplychain-index {
-  padding: 24px;
-}
+
 .supplychain-index ul {
   list-style: none;
   padding: 0;

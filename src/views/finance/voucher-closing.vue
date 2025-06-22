@@ -1,7 +1,6 @@
 <template>
   <div>
     <el-card>
-      <h3>结账</h3>
       <!-- 这里实现结账操作和状态 -->
       <el-alert title="结账后本期数据将锁定，无法修改。" type="warning" show-icon class="mb-2" />
       <el-button type="danger">结账</el-button>

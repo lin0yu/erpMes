@@ -1,26 +1,23 @@
 <template>
-  <div class="order">
-    <h2>生产订单</h2>
-    <ul>
-      <li>订单创建</li>
-      <li>订单审核</li>
-      <li>订单下达</li>
-    </ul>
-  </div>
+  <el-tabs v-model="activeTab">
+    <el-tab-pane label="订单列表" name="orderList">
+      <OrderList />
+    </el-tab-pane>
+    <el-tab-pane label="订单进度" name="progress">
+      <Progress />
+    </el-tab-pane>
+  </el-tabs>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import OrderList from './order/OrderList.vue';
+import Progress from './order/Progress.vue';
+const activeTab = ref('orderList');
 </script>
 
 <style scoped>
-.order {
-  padding: 24px;
-}
-.order ul {
-  list-style: none;
-  padding: 0;
-}
-.order li {
-  margin-bottom: 8px;
+.el-tabs {
+  /* 无背景色 */
 }
 </style>

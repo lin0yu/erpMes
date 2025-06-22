@@ -1,29 +1,29 @@
 <template>
-  <div class="inventory">
-    <h2>库存管理</h2>
-    <ul>
-      <li>库存入库（采购入库、生产入库等）</li>
-      <li>库存出库（销售出库、生产领料等）</li>
-      <li>库存盘点（定期盘点、临时盘点等）</li>
-      <li>库存调拨（仓库间调拨等）</li>
-      <li>库存成本核算</li>
-      <li>库存预警（低库存预警、超库存预警等）</li>
-    </ul>
-  </div>
+  <el-tabs v-model="activeTab">
+    <el-tab-pane label="库存台账" name="stock">
+      <Stock />
+    </el-tab-pane>
+    <el-tab-pane label="出入库明细" name="record">
+      <Record />
+    </el-tab-pane>
+    <el-tab-pane label="仓库管理" name="warehouse">
+      <Warehouse />
+    </el-tab-pane>
+    <el-tab-pane label="库存预警" name="warning">
+      <Warning />
+    </el-tab-pane>
+  </el-tabs>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import Stock from './inventory/Stock.vue';
+import Record from './inventory/Record.vue';
+import Warehouse from './inventory/Warehouse.vue';
+import Warning from './inventory/Warning.vue';
+const activeTab = ref('stock');
 </script>
 
 <style scoped>
-.inventory {
-  padding: 24px;
-}
-.inventory ul {
-  list-style: none;
-  padding: 0;
-}
-.inventory li {
-  margin-bottom: 8px;
-}
+
 </style>

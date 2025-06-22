@@ -1,26 +1,21 @@
 <template>
-  <div class="quality">
-    <h2>质量管理</h2>
-    <ul>
-      <li>质量检验标准设置</li>
-      <li>产品检验</li>
-      <li>质量问题处理</li>
-    </ul>
-  </div>
+  <el-tabs v-model="activeTab">
+    <el-tab-pane label="质量检验标准设置" name="standard">
+      <Standard />
+    </el-tab-pane>
+    <el-tab-pane label="产品检验" name="inspection">
+      <Inspection />
+    </el-tab-pane>
+    <el-tab-pane label="质量问题处理" name="issue">
+      <Issue />
+    </el-tab-pane>
+  </el-tabs>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import Standard from './quality/Standard.vue';
+import Inspection from './quality/Inspection.vue';
+import Issue from './quality/Issue.vue';
+const activeTab = ref('standard');
 </script>
-
-<style scoped>
-.quality {
-  padding: 24px;
-}
-.quality ul {
-  list-style: none;
-  padding: 0;
-}
-.quality li {
-  margin-bottom: 8px;
-}
-</style>

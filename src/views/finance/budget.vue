@@ -1,27 +1,33 @@
 <template>
   <div class="budget">
-    <h2>预算管理</h2>
-    <ul>
-      <li>预算编制</li>
-      <li>预算审批</li>
-      <li>预算执行监控</li>
-      <li>预算调整</li>
-    </ul>
+    <el-tabs v-model="activeTab">
+      <el-tab-pane label="预算编制" name="budgeting">
+        <Budgeting />
+      </el-tab-pane>
+      <el-tab-pane label="预算审批" name="approval">
+        <Approval />
+      </el-tab-pane>
+      <el-tab-pane label="预算执行监控" name="monitor">
+        <Monitor />
+      </el-tab-pane>
+      <el-tab-pane label="预算调整" name="adjustment">
+        <Adjustment />
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import Budgeting from './budget/Budgeting.vue';
+import Approval from './budget/Approval.vue';
+import Monitor from './budget/Monitor.vue';
+import Adjustment from './budget/Adjustment.vue';
+const activeTab = ref('budgeting');
 </script>
 
 <style scoped>
 .budget {
-  padding: 24px;
-}
-.budget ul {
-  list-style: none;
-  padding: 0;
-}
-.budget li {
-  margin-bottom: 8px;
+  /* 不加padding，保持与需求一致 */
 }
 </style>
